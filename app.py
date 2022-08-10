@@ -29,7 +29,7 @@ with st.form(key='columns_in_form'):
     district = cols[2].selectbox('District',
                       ('Sovetsky', 'Oktyabrsky', 'Pervomaisky', 'Tsentralny', 'Partizansky', 
                        'Leninsky', 'Zavodskoy', 'Moskovsky', 'Frunzensky'))
-    cols = st.columns(1)
+    cols = st.columns(3)
     subway = cols[0].selectbox('Near Subway', ('No', 'Yes'))
 
     cols = st.columns(2)
@@ -47,7 +47,7 @@ if submitted:
         "kitchen_area": kitchen_area,
         "bathroom": bathroom,
         "balcony": balcony,
-        "subway": subway,
+        "near_the_subway": subway,
         "house_type": house_type, 
         "district": district,
         "number_of_rooms": number_of_rooms, 
