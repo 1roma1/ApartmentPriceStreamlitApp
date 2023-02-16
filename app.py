@@ -3,6 +3,7 @@ import streamlit as st
 
 
 st.title("Minsk Apartment Price Prediction")
+st.image("img.jpg")
 
 with st.form(key='columns_in_form'):
     cols = st.columns(3)
@@ -54,6 +55,8 @@ if submitted:
         "number_of_storeys": number_of_storeys, 
     }
     
-    resp = requests.post("http://minsk-apartment-price.herokuapp.com/predict", json=data)
-    price = round(resp.json()["price"], 2)
-    price_text.text(f"{price} $")
+    resp = requests.post("https://model-predict-api.onrender.com/minsk_apartment/predict", json=data)
+    price = resp.json()["price"]
+
+    text = f'<p style="font-family:sans-serif; color:Red; font-size: 24px;">{price} $</p>'
+    price_text.markdown(text, unsafe_allow_html=True)
